@@ -1,15 +1,16 @@
 package training;
 
-import lombok.AllArgsConstructor;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@AllArgsConstructor
 public class EmployeesDao {
 
     private EntityManager entityManager;
+
+    public EmployeesDao(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     public void saveEmployee(Employee employee) {
         entityManager.persist(employee);
